@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">PokemonWeekSevenTask</string>
+    <string-array name="placeholders">
+        <item>#eeeeee</item>
+        <item>#e0e0e0</item>
+        <item>#aeaeae</item>
+        <item>#bdbdbd</item>
+        <item>#cfcfcf</item>
+        <item>#8d8d8d</item>
+        <item>#9e9e9e</item>
+        <item>#707070</item>
+        <item>#757575</item>
+
+    </string-array>
 </resources>

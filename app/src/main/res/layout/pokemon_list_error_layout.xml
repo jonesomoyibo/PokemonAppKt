@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewState"
+            type="com.olamachia.pokemonweekseventask.ui.states.PokemonListViewState" />
+
+        <variable
+            name="viewModel"
+            type="com.olamachia.pokemonweekseventask.ui.viewmodels.PokemonViewModel" />
+    </data>
+
+  <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      app:onRefreshListener="@{() -> viewModel.retryAddPokeMonsToList()}"
+      app:refreshing="@{viewState.s}"
+      >
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/fragment_list_error_message_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/roboto"
+        android:gravity="center"
+        android:text="Something went wrong while fetching pokemons"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>
