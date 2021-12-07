@@ -12,12 +12,6 @@
             type="com.olamachia.pokemonweekseventask.ui.viewmodels.PokemonViewModel" />
     </data>
 
-  <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      app:onRefreshListener="@{() -> viewModel.retryAddPokeMonsToList()}"
-      app:refreshing="@{viewState.s}"
-      >
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -31,7 +25,7 @@
         android:layout_marginBottom="32dp"
         android:fontFamily="@font/roboto"
         android:gravity="center"
-        android:text="Something went wrong while fetching pokemons"
+        android:text="Something went wrong while fetching pokemons. Swipe down to refresh"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,5 +34,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-  </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 </layout>

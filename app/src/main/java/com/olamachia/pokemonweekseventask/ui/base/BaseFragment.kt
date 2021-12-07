@@ -1,5 +1,6 @@
 package com.olamachia.pokemonweekseventask.ui.base
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,11 +9,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
+import javax.inject.Inject
 
 abstract class BaseFragment<VB: ViewDataBinding,VM: ViewModel>(
     private val layoutId:Int): Fragment() {
 
 
+        @Inject
         lateinit var viewModel: VM
         lateinit var viewBinding:VB
 
@@ -33,5 +36,13 @@ abstract class BaseFragment<VB: ViewDataBinding,VM: ViewModel>(
     }
 
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        onInitDependencyInjection()
+    }
+
+
     abstract fun onInitDataBinding()
+
+    abstract fun onInitDependencyInjection()
 }

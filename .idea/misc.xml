@@ -7,23 +7,29 @@
         <entry key="app/src/main/res/drawable/bg_white_rounded.xml" value="0.19166666666666668" />
         <entry key="app/src/main/res/drawable/h.xml" value="0.1712962962962963" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/pokeball.xml" value="0.13229166666666667" />
         <entry key="app/src/main/res/drawable/pokemon_logo.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable/search_navbar.xml" value="0.19166666666666668" />
         <entry key="app/src/main/res/drawable/splash_image.xml" value="0.20185185185185187" />
         <entry key="app/src/main/res/drawable/splash_screen_background.xml" value="0.125" />
         <entry key="app/src/main/res/drawable/splash_screen_layerlist.xml" value="0.165" />
         <entry key="app/src/main/res/drawable/upload_navbar.xml" value="0.19166666666666668" />
+        <entry key="app/src/main/res/font/roboto_thin.xml" value="0.15052083333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
         <entry key="app/src/main/res/layout/characters_list.xml" value="0.5" />
         <entry key="app/src/main/res/layout/fragment_pokemon_details.xml" value="0.28125" />
-        <entry key="app/src/main/res/layout/fragment_pokemon_list.xml" value="0.29002463054187194" />
+        <entry key="app/src/main/res/layout/fragment_pokemon_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_pokemon_search.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_upload_image.xml" value="0.2453125" />
-        <entry key="app/src/main/res/layout/pokemon_list_error_layout.xml" value="0.2453125" />
-        <entry key="app/src/main/res/layout/pokemon_list_item.xml" value="0.2453125" />
-        <entry key="app/src/main/res/layout/pokemon_list_item_error.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_upload_image.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/pokemon_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/pokemon_list_empty.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/pokemon_list_error.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/pokemon_list_error_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/pokemon_list_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/pokemon_list_item_error.xml" value="0.22" />
         <entry key="app/src/main/res/layout/pokemon_list_item_loading.xml" value="0.12447916666666667" />
+        <entry key="app/src/main/res/layout/pokemon_list_loading.xml" value="0.11197916666666667" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.2953125" />
       </map>
     </option>

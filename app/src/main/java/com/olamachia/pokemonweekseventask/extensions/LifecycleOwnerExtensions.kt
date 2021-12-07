@@ -6,7 +6,11 @@ import io.reactivex.rxjava3.core.Single
 
 fun <T> LifecycleOwner.subscribe(single: Single<T>, observer: (T) ->Unit){
 
-    single
-        .observeOn(AndroidSchedulers.mainThread())
+    single.observeOn(AndroidSchedulers.mainThread())
         .subscribe(observer)
+}
+
+fun <T> LifecycleOwner.unSubscribe(single: Single<T>){
+
+    single.unsubscribeOn(AndroidSchedulers.mainThread())
 }

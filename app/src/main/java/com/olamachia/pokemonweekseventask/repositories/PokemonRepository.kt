@@ -10,14 +10,15 @@ import com.olamachia.pokemonweekseventask.network.services.PokemonApiService
 import com.olamachia.pokemonweekseventask.paging.PokemonListPagedSource
 import com.olamachia.pokemonweekseventask.ui.fragments.PokemonDetailsFragment
 import io.reactivex.rxjava3.core.Flowable
+import javax.inject.Inject
 
-class PokemonRepository(private val apiService: PokemonApiService) {
+class PokemonRepository @Inject constructor(private val pokemonListPagedSource:PokemonListPagedSource) {
 
 
     fun getPokeMons(limit: Int): Flowable<PagingData<PokeMonDetails>> =
       Pager(
             PagingConfig(pageSize = limit, enablePlaceholders = false, initialLoadSize = 40),
-            pagingSourceFactory = { PokemonListPagedSource(apiService) }
+            pagingSourceFactory = { pokemonListPagedSource }
         ).flowable
 
 

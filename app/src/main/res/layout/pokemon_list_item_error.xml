@@ -25,7 +25,8 @@
             android:text="Error Fetching More Pokemons"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatTextView>
+            app:layout_constraintTop_toTopOf="parent">
+        </androidx.appcompat.widget.AppCompatTextView>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/retry_button"
@@ -33,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="3dp"
-            android:onClick="@{() -> viewModel.retryAddPokemonsToList()}"
+            android:onClick="@{() -> viewModel.retryAddPokeMonsToList()}"
 
             android:text="Retry"
             android:textAllCaps="false"

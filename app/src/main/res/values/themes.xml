@@ -1,17 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.PokemonWeekSevenTask" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+    <!--Themes-->
+    <style name="PokemonTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
 
+    <style name="PokemonTheme.BackgroundStyle">
+        <item name="android:background">@color/primaryLight</item>
+    </style>
+
+    <style name="PokemonTheme.SurfaceStyle">
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:background">@color/primary</item>
+    </style>
+
+    <style name="PokemonTheme.FloatingActionButton" parent="@style/Widget.MaterialComponents.FloatingActionButton">
+        <item name="tint">@color/primary</item>
+        <item name="backgroundTint">@color/accent</item>
+    </style>
+
+    <!--Text appearances-->
+    <style name="TextAppearance.Title" parent="@style/TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textColor">@color/textHeadline</item>
+    </style>
+
+    <style name="TextAppearance.CardTitle" parent="@style/TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/textBody</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="TextAppearance.Body" parent="@style/TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/textBody</item>
+    </style>
 </resources>

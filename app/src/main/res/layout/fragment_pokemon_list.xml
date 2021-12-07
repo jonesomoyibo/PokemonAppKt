@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
-
     <data>
 
         <variable
-            name="viewState"
-            type="com.olamachia.pokemonweekseventask.ui.states.PokemonListViewState" />
+            name="viewModel"
+            type="com.olamachia.pokemonweekseventask.ui.viewmodels.PokemonViewModel" />
+
     </data>
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:onRefreshListener="@{() -> viewModel.retryAddPokeMonsToList()}"
+        app:refreshing="@{viewModel.viewState.refreshing}">
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -19,108 +24,132 @@
     app:circularflow_defaultRadius="20dp"
     tools:context=".ui.fragments.PokemonSearchFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/top_search_cardview"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/top_search_cardview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="-15dp"
-            app:cardBackgroundColor="#D14646"
-            app:cardCornerRadius="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/top_card_view_tv_one"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginBottom="110dp"
-                    android:fontFamily="@font/roboto"
-                    android:text="What Pokemon"
-                    android:textColor="@color/white"
-                    android:textSize="24sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <TextView
-                    android:id="@+id/top_card_view_tv_two"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/roboto"
-                    android:text="are you looking for?"
-                    android:textColor="@color/white"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/top_card_view_tv_one" />
-
-                <SearchView
-                    android:id="@+id/search_bar"
-                    android:layout_width="0dp"
-                    android:layout_height="45dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/bg_white_rounded"
-                    android:clickable="true"
-                    app:circularflow_radiusInDP="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/top_card_view_tv_two" />
-
-                <ImageView
-                    android:id="@+id/pokeball_iv"
-                    android:layout_width="181dp"
-                    android:layout_height="95dp"
-                    android:layout_marginTop="24dp"
-                    android:paddingEnd="5dp"
-                    android:scaleType="fitEnd"
-                    android:src="@drawable/pokeball"
-                    app:layout_constraintStart_toEndOf="@+id/top_card_view_tv_two"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-16dp"
+        app:cardBackgroundColor="#D14646"
+        app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" >
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view_characters"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <TextView
+                android:id="@+id/top_card_view_tv_one"
+                style="@style/TextAppearance.CardTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
+                android:layout_marginBottom="110dp"
+                android:fontFamily="@font/roboto"
+                android:text="What Pokemon"
+                android:textColor="@color/primary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/top_card_view_tv_two"
+                style="@style/TextAppearance.CardTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto"
+                android:text="are you looking for?"
+                android:textColor="@color/primary"
+                app:layout_constraintStart_toStartOf="@+id/top_card_view_tv_one"
+                app:layout_constraintTop_toBottomOf="@+id/top_card_view_tv_one" />
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search_bar"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_white_rounded"
+                android:clickable="true"
+                app:circularflow_radiusInDP="20dp"
+                app:iconifiedByDefault="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                tools:listitem="@layout/pokemon_list_item" />
+                app:layout_constraintTop_toBottomOf="@+id/top_card_view_tv_two"
+                app:queryHint="Search pokemons" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/pokeball_iv"
+                android:layout_width="181dp"
+                android:layout_height="95dp"
+                android:layout_marginEnd="-64dp"
+                android:paddingEnd="5dp"
+                android:scaleType="fitEnd"
+                android:src="@drawable/pokeball"
+                app:layout_constraintBottom_toBottomOf="@+id/top_card_view_tv_two"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/top_card_view_tv_two"
+                app:layout_constraintTop_toTopOf="@+id/top_card_view_tv_one" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <include
+        android:id="@+id/include_list"
+        layout="@layout/pokemon_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_search_cardview"
+        app:viewState="@{viewModel.viewState}" />
+
+    <include
+        android:id="@+id/include_list_empty"
+        layout="@layout/pokemon_list_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:viewState="@{viewModel.viewState}" />
+
+    <include
+        android:id="@+id/include_list_error"
+        layout="@layout/pokemon_list_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:viewState="@{viewModel.viewState}" />
+
+    <include
+        android:id="@+id/include_list_loading"
+        layout="@layout/pokemon_list_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:viewState="@{viewModel.viewState}" />
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </layout>
