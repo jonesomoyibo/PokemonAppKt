@@ -24,7 +24,7 @@ class PokemonListPagedSource(private val pokemonApiService: PokemonApiService) :
     override fun loadSingle(params: LoadParams<Int>): Single<LoadResult<Int, PokeMonDetails>> {
         var pokeMons:PokeMons? =  null
 
-        return  pokemonApiService.getPokemons(params.key?:0,params.loadSize)
+        return  pokemonApiService.getPokeMons(params.key?:0,params.loadSize)
             .flatMap {
                 pokeMons = it
                 Single.just(

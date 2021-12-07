@@ -14,7 +14,7 @@ interface PokemonApiService {
 
     //Returns the page of pokemons
     @GET("/pokemon")
-    fun getPokemons(
+    fun getPokeMons(
       @Query("offset") offset:Int = 0,
       @Query("limit") limit:Int
     ): Single<PokeMons>
